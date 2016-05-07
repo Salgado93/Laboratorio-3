@@ -5,6 +5,8 @@ using std:: cin;
 
 char entrada(char [][4]);
 void imprimirMatriz(char[][4],int,int);
+//void ganar (char[][4]);
+
 
 int main (int argc, char* argv[]){
 	const int FILAS = 4;
@@ -12,41 +14,50 @@ int main (int argc, char* argv[]){
 	char tablero[FILAS][COLUMNAS] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i','j','k','l','m','n','o','p' };	
 	imprimirMatriz(tablero,FILAS,COLUMNAS);
 	while (1){
-	    char a;
-	    cout << "Ingrese La Letra Del Espacio: ";
-	    cin >> a;
-	    if (a == 'a')
-		tablero[0][0] = entrada(tablero);
-	    else if (a == 'b')
-		tablero[0][1] = entrada(tablero);
-	    else if (a == 'c')
-		tablero[0][2] = entrada(tablero);
-	    else if (a == 'd')
-		tablero[0][3] = entrada(tablero);
-	    else if (a == 'e')
-		tablero[1][0] = entrada(tablero);
-	    else if (a == 'f')
-		tablero[1][2] = entrada(tablero);
-	    else if (a == 'g')
-		tablero[1][3] = entrada(tablero);
-	    else if (a == 'h')
-		tablero[2][0] = entrada(tablero);
-	    else if (a == 'i')
-		tablero[2][1] = entrada(tablero);
-	    else if (a == 'j')
-		tablero[2][2] = entrada(tablero);
-	    else if (a == 'k')
-		tablero[2][3] = entrada(tablero);
-	    else if (a == 'l')
-		tablero[3][0] = entrada(tablero);
-	    else if (a == 'm')
-		tablero[3][1] = entrada(tablero);
-	    else if (a == 'n')
-		tablero[3][2] = entrada(tablero);
-	    else if (a == 'o')
-		tablero[3][3] = entrada(tablero);
+	    	char a;
+	    	cout << "Ingrese La Letra Del Espacio: ";
+	    	cin >> a;
+	    	if (a == 'a')
+			tablero[0][0] = entrada(tablero);
+	    	else if (a == 'b')
+			tablero[0][1] = entrada(tablero);
+	    	else if (a == 'c')
+			tablero[0][2] = entrada(tablero);
+	    	else if (a == 'd')
+			tablero[0][3] = entrada(tablero);
+	    	else if (a == 'e')
+			tablero[1][0] = entrada(tablero);
+	    	else if (a == 'f')
+			tablero[1][2] = entrada(tablero);
+	    	else if (a == 'g')
+			tablero[1][3] = entrada(tablero);
+	    	else if (a == 'h')
+			tablero[2][0] = entrada(tablero);
+	    	else if (a == 'i')
+			tablero[2][1] = entrada(tablero);
+	    	else if (a == 'j')
+			tablero[2][2] = entrada(tablero);
+	    	else if (a == 'k')
+			tablero[2][3] = entrada(tablero);
+	    	else if (a == 'l')
+			tablero[3][0] = entrada(tablero);
+	    	else if (a == 'm')
+			tablero[3][1] = entrada(tablero);
+	    	else if (a == 'n')
+			tablero[3][2] = entrada(tablero);
+	  	else if (a == 'o')
+			tablero[3][3] = entrada(tablero);
 	    
-            imprimirMatriz(tablero,FILAS,COLUMNAS);
+        	imprimirMatriz(tablero,FILAS,COLUMNAS);
+
+		/*if (ganar(tablero) == '#'){
+            	cout << "# wins!" << endl;
+            		break;
+        	}
+        	else if (ganar(tablero) == '*'){
+            		cout << "* wins!" << endl;
+            		break;
+        	}*/
 	}							 	
 	return 0;
 }
@@ -107,4 +118,41 @@ char entrada(char matrix[][4]){
         }        	
     	return jugador;
 }
+/*
+char ganar(char tablero[][4]){
+    if (tablero[0][0] == '#' && tablero[0][1] == '#' && tablero[0][2] == '#' && tablero[0][3] == '#')
+        return '#';
+    if (tablero[1][0] == '#' && tablero[1][1] == '#' && tablero[1][2] == '#' && tablero[1][3] == '#')
+        return '#';
+    if (tablero[2][0] == '#' && tablero[2][1] == '#' && tablero[2][2] == '#' && tablero[2][3] == '#')
+        return '#';
+    if (tablero[0][0] == '#' && tablero[1][0] == '#' && tablero[2][0] == '#' && tablero[3][0] == '#')
+        return '#';
+    if (tablero[0][1] == '#' && tablero[1][1] == '#' && tablero[2][1] == '#' && tablero[3][1] == '#')
+        return '#';
+    if (tablero[0][2] == '#' && tablero[1][2] == '#' && tablero[2][2] == '#' && tablero[3][2] == '#')
+        return '#';
+    if (tablero[0][0] == '#' && tablero[1][1] == '#' && tablero[2][2] == '#' && tablero[3][3] == '#')
+        return '#';
+    if (tablero[2][0] == '#' && tablero[1][1] == '#' && tablero[0][2] == && tablero[0][3] == '#')
+        return '#';
 
+    if (tablero[0][0] == '*' && tablero[0][1] == '*' && tablero[0][2] == && tablero[0][3] == '*')
+        return '*';
+    if (tablero[1][0] == '*' && tablero[1][1] == '*' && tablero[1][2] == '*' && tablero[1][3] == '*')
+        return '*';
+    if (tablero[2][0] == '*' && tablero[2][1] == '*' && tablero[2][2] == '*' && tablero[2][3] == '*')
+        return '*';
+    if (tablero[0][0] == '*' && tablero[1][0] == '*' && tablero[2][0] == '*' && tablero[3][0] == '*')
+        return '*';
+    if (tablero[0][1] == '*' && tablero[1][1] == '*' && tablero[2][1] == '*' && tablero[3][1] == '*')
+        return '*';
+    if (tablero[0][2] == '*' && tablero[1][2] == '*' && tablero[2][2] == '*' && tablero[3][2] == '*')
+        return '*';
+    if (tablero[0][0] == '*' && tablero[1][1] == '*' && tablero[2][2] == '*' && tablero[3][3] == '*')
+        return '*';
+    if (tablero[2][0] == '*' && tablero[1][1] == '*' && tablero[0][2] == '*' && tablero [0][3] == '*')
+        return '*';
+    return '/';
+
+}*/
